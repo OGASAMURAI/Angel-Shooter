@@ -5,12 +5,13 @@ public class Player : MonoBehaviour
 {
     public GameObject BulletPrefab;
 
-   private void  Shot(Transform origin)
+    private void Shot(Transform origin)
     {
         Instantiate(BulletPrefab, origin.position, origin.rotation);
-        }
-        // Spaceshipコンポーネント
-        Basescript basescript;
+    }
+   
+    // Spaceshipコンポーネント
+    Basescript basescript;
     
     IEnumerator Start()
     {

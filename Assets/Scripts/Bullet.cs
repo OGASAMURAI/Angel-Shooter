@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 {
     // Spaceshipコンポーネント
     Basescript basescript;
+    public int it = 1;
 
     // 攻撃力
     public int power = 3;
@@ -53,13 +54,13 @@ public class Bullet : MonoBehaviour
             // 爆発の作成
             Explosion();
             //Debug.Log("ぎえsdええ");
-
+            FindObjectOfType<HP>().Hit(it);
             //プレイヤーーの削除
-            Destroy(c.gameObject);
+             Destroy(c.gameObject);
             // Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す
-            
+
             FindObjectOfType<Manager>().GameOver();
-            //Debug.Log("ぎえええ");
+           // Debug.Log("ここは敵の判定");
         }
         
       

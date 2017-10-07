@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int hp = 3;
     //score point 
     public int point = 10;
+    public int it = 1;
     // Spaceshipコンポーネント
     Basescript basescript;
     GameObject dropobj;
@@ -96,7 +97,9 @@ public class Enemy : MonoBehaviour
             //  Debug.Log("わう");
             // 爆発
             basescript.Explosion();
-            //Debug.Log("わhuhuhああ");
+            FindObjectOfType<HP>().Hit(it);
+           
+                       // Debug.Log("ここは弾道");
             //プレイヤーーの削除
             Destroy(c.gameObject);
             // Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す

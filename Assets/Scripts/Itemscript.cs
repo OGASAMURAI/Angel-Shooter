@@ -5,9 +5,10 @@ using UnityEngine;
 public class Itemscript : MonoBehaviour {
     
     public int shot = 1;
-    public Player playerScript; 
+    public Player playerScript;
 
 
+  
      void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag =="character 2")

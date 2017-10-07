@@ -3,32 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HP : MonoBehaviour {
-    public int Count;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    public int Count;
+    int num = 0;
+    public void Hit(int it)
+      
+    {
+        Count = Count - it;
+       
+    }
+    // Use this for initialization
+    void Start () {
+        
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject arrObj = transform.Find("GameObject").gameObject;
-        int num = 0;
-        foreach (Transform childObj in arrObj.transform)
-        {
+        //if (Count <= 0)
+        //{
 
-            // ライフポイントの数だけ、GameObjectをアクティブにして表示、指定ポイントより低かったら非アクティブ
-            if (Count > num)
+        //    var clones = GameObject.FindGameObjectsWithTag("a");
+        //    foreach (var clone in clones)
+        //    {
+        //        Destroy(clone);
+
+
+
+
+        //    }
+
+
+
+        //}
+        //else
+        //{
+            GameObject arrObj = GameObject.Find("GameObjectChild").gameObject;
+            
+            foreach (Transform childObj in arrObj.transform)
             {
-                childObj.gameObject.SetActive(true);
+
+
+                // ライフポイントの数だけ、GameObjectをアクティブにして表示
+                if (Count >= num)
+                {
+                    
+                    childObj.gameObject.SetActive(true);
+                     Debug.Log("tyugjgjrr");
+                }
+                else
+                {
+
+                    childObj.gameObject.SetActive(false);
+                    Debug.Log("tyurr");
+                }
+                
             }
-            else
-            {
-                childObj.gameObject.SetActive(false);
-            }
-            num += 1;
         }
 
 
     }
-}
+

@@ -31,12 +31,12 @@ public class UIcontroller : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("dfg");
+        Debug.Log("dfg");
         scoreText.GetComponent<Text>().text = "" + score.ToString("D4");
         // スコアがハイスコアより大きければ
         if (highscore < score)
         {
-            //Debug.Log("through");
+            Debug.Log("through");
            
             highscore = score;
             scorehigh.GetComponent<Text>().text = "" + highscore.ToString("D4");
