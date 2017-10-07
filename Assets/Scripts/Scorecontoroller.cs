@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Scorecontoroller : MonoBehaviour {
-    int score = 0;
+  public  int score ;
      public GameObject scoreText;
-
+    
 
 
     // Use this for initialization

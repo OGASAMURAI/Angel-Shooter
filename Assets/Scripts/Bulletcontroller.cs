@@ -24,8 +24,10 @@ public class Bulletcontroller : MonoBehaviour
         // Debug.Log(layerName);
         // レイヤー名がBullet (Player)以外の時は何も行わない
         
-            if (layerName == "Enemy") { 
-              //  GameObject.Find("Canvas").GetComponent<UIcontroller>().AddScore();
+            if (layerName == "Enemy") {
+         //   Debug.Log("とおって");
+
+            //  GameObject.Find("Canvas").GetComponent<UIcontroller>().AddScore();
         }
             if (layerName == "Player")
         {
@@ -33,7 +35,7 @@ public class Bulletcontroller : MonoBehaviour
             
             //aitewokesu
             Destroy(collision.gameObject);
-            Debug.Log("とおって");
+           // Debug.Log("とおって");
             Destroy(gameObject);
         }
     }

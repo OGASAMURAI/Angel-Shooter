@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HP : MonoBehaviour {
-    public int lifeCount;
+    public int Count;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,13 +12,13 @@ public class HP : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject arrObj = transform.Find("GameObject/GameObjectHoge").gameObject;
+        GameObject arrObj = transform.Find("GameObject").gameObject;
         int num = 0;
         foreach (Transform childObj in arrObj.transform)
         {
 
             // ライフポイントの数だけ、GameObjectをアクティブにして表示、指定ポイントより低かったら非アクティブ
-            if (lifeCount > num)
+            if (Count > num)
             {
                 childObj.gameObject.SetActive(true);
             }

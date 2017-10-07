@@ -11,10 +11,10 @@ public class UIcontroller : MonoBehaviour
     public Text scorehigh;
 
     public int highscore ;
-    public int score = 0;
-   
+
+    int score;
     //GameObject scoreText;
-   // GameObject scorehigh;
+    // GameObject scorehigh;
 
     // PlayerPrefsで保存するためのキー
     private string highScoreKey = "highScore";
@@ -36,7 +36,7 @@ public class UIcontroller : MonoBehaviour
         // スコアがハイスコアより大きければ
         if (highscore < score)
         {
-            
+            //Debug.Log("through");
            
             highscore = score;
             scorehigh.GetComponent<Text>().text = "" + highscore.ToString("D4");

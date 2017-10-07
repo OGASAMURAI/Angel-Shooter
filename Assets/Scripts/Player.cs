@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
         {
 
 
-            
-            (i < transform.childCount;shot++i;);
+
+            i++;
         }
 
         {

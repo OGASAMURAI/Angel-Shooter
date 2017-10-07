@@ -7,11 +7,13 @@ public class Manager : MonoBehaviour
 
     // タイトル
     private GameObject title;
-
+    private GameObject gameover;
     void Start()
     {
         // Titleゲームオブジェクトを検索し取得する
         title = GameObject.Find("Title");
+        gameover = GameObject.Find("GameOver");
+        gameover.SetActive(false);
     }
 
     void Update()
@@ -27,6 +29,7 @@ public class Manager : MonoBehaviour
     {
         // ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
         title.SetActive(false);
+        gameover.SetActive(false);
         Instantiate(player, player.transform.position, player.transform.rotation);
     }
 
@@ -35,7 +38,7 @@ public class Manager : MonoBehaviour
         // ハイスコアの保存
         FindObjectOfType<UIcontroller>().Save();
         // ゲームオーバー時に、タイトルを表示する
-        title.SetActive(true);
+        gameover.SetActive(true);
     }
 
     public bool IsPlaying()

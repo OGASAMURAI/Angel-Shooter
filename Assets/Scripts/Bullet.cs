@@ -57,6 +57,7 @@ public class Bullet : MonoBehaviour
             //プレイヤーーの削除
             Destroy(c.gameObject);
             // Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す
+            
             FindObjectOfType<Manager>().GameOver();
             //Debug.Log("ぎえええ");
         }

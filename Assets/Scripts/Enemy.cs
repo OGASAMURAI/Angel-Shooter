@@ -23,19 +23,22 @@ public class Enemy : MonoBehaviour
 
         // ローカル座標のY軸のマイナス方向に移動する
         basescript.Move(transform.right * -1);
-        addshot = GameObject.FindGameObjectWithTag("shot").GetComponent<Itemscript>();
+        //getting item procession (addshot)
+        //addshot = GameObject.FindGameObjectWithTag("shot").GetComponent<Itemscript>();
         // canShotがfalseの場合、ここでコルーチンを終了させる
         if (basescript.canShot == false)
+           
         {
             yield break;
         }
             while (true)
         {
+            //Debug.Log("thogh");
 
             // 子要素を全て取得する
             for (int i = 0; i < transform.childCount; i++)
             {
-
+                //Debug.Log("throgh");
                 Transform shotPosition = transform.GetChild(i);
 
                 // ShotPositionの位置/角度で弾を撃つ
