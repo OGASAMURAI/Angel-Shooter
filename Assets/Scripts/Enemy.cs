@@ -86,12 +86,11 @@ public class Enemy : MonoBehaviour
 			//Destroy(c.gameObject);
 			//  Debug.Log("わう");
 			// 爆発
-			basescript.Explosion ();
+
 			FindObjectOfType<HP> ().Hit (it);
 
 			// Debug.Log("ここは弾道");
-			//プレイヤーーの削除
-			Destroy (c.gameObject);
+
 
 			// Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す
 			// /FindObjectOfType<Manager> ().GameOver ();
