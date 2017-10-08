@@ -42,6 +42,9 @@ public class HP : MonoBehaviour
 
 		if (Count <= num) {
 			//childObj.gameObject.SetActive (true);
+
+			playerDestroy (); 
+			FindObjectOfType<Basescript> ().Explosion ();
 			FindObjectOfType<Manager> ().GameOver ();
 
 			//Debug.Log ("tyugjgjrr");
@@ -50,10 +53,19 @@ public class HP : MonoBehaviour
 			//Debug.Log ("tyurr");
 
 
-			FindObjectOfType<Manager> ().titleScene ();
+
 
 
 		}
+	}
+
+	public void playerDestroy ()
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("a");
+		foreach (GameObject player in players) {
+			Destroy (player);
+		}
+
 	}
 
 	// Use this for initialization

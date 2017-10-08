@@ -20,13 +20,15 @@ public class Itemscript : MonoBehaviour
 		}
 	}
 
-	void itemdrop ()
+	public void itemdrop ()
 	{
 
 		if (Random.Range (0, 49) == 0) {
 			Instantiate (dropobj, transform.position, transform.rotation);
 		}
 	}
+
+
 
 	// Use this for initialization
 	void Start ()
