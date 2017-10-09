@@ -1,4 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -24,11 +28,26 @@ public class Manager : MonoBehaviour
 	void Update ()
 	{
 		
+
 		// ゲーム中ではなく、Xキーが押されたらtrueを返す。
 		if (IsPlaying () == false && Input.GetKeyDown (KeyCode.X)) {
 			GameStart ();
 		}
+        {
+            // ゲームおーばーで、Yーが押されたらtrueを返す。
+		if (Gameend()== true && Input.GetKeyDown (KeyCode.Y)) {
+                SceneManager.LoadScene("main"); GameStart ();
+		}
+        }
+        {
+            if (Gameend() == true && Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("shoot"); GameStart();
+            }
+        }
+
 	}
+
 
 	public void titleScene ()
 	{
@@ -48,8 +67,10 @@ public class Manager : MonoBehaviour
 	{
 		// ハイスコアの保存
 		FindObjectOfType<UIcontroller> ().Save ();
-		// ゲームオーバー時に、タイトルを表示する
+		// ゲームオーバー時に、ゲームオーバーを表示する
 		gameover.SetActive (true);
+
+       // Debug.Log("through");
 	}
 
 	public bool IsPlaying ()
@@ -57,4 +78,12 @@ public class Manager : MonoBehaviour
 		// ゲーム中かどうかはタイトルの表示/非表示で判断する
 		return title.activeSelf == false;
 	}
+
+    public bool Gameend()
+    {
+        //Debug.Log("wau");
+        //ゲームオーバー化どうかはゲームオーバー表示で判断
+        return gameover.activeSelf == true;
+        
+    }
 }
