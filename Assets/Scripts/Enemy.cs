@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
- 
 	public int power = 3;
 	// ヒットポイント
 	public int hp = 3;
@@ -11,9 +10,11 @@ public class Enemy : MonoBehaviour
 	public int point = 10;
 	public int it = 1;
 	// Spaceshipコンポーネント
+
 	Basescript basescript;
 
 	public GameObject shotaddTxc;
+	public GameObject HPitem;
 
 
 	IEnumerator Start ()
@@ -59,7 +60,6 @@ public class Enemy : MonoBehaviour
 			//Debug.Log("わsdう");
 			// Bulletcontrollerコンポーネントを取得
             
-            
 			// ヒットポイントを減らす
 			hp = hp - power;
 			//弾の削除
@@ -76,12 +76,9 @@ public class Enemy : MonoBehaviour
 				// エネミーの削除
 				itemdrop ();
 				Destroy (gameObject);
-
-
-
-
 			}
 		}
+
 		if (layerName == "Player") {
 			// エネミーの削除
 			//Destroy(c.gameObject);
@@ -91,8 +88,6 @@ public class Enemy : MonoBehaviour
 			FindObjectOfType<HP> ().Hit (it);
 
 			// Debug.Log("ここは弾道");
-
-
 			// Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す
 			// /FindObjectOfType<Manager> ().GameOver ();
 		}
@@ -100,12 +95,17 @@ public class Enemy : MonoBehaviour
 
 	void itemdrop ()
 	{
-		Debug.Log ("aaaa");
-		int rnd = Random.Range (0, 2);
+		int rnd = Random.Range (0, 5);
+
 		if (rnd == 0) {
 			GameObject shotaddItem = Instantiate (shotaddTxc, transform.position, transform.rotation) as GameObject;
 			shotaddItem.name = "shotaddTxc";
 		}
+		if (rnd == 1) {
+			GameObject hpitem = Instantiate (HPitem, transform.position, transform.rotation) as GameObject;
+			hpitem.name = "HPitem";
+		}
+
 	}
 	
 }

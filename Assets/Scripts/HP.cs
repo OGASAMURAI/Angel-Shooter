@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class HP : MonoBehaviour
 {
-
 	public int Count;
 	int num = 0;
-	public GameObject heart;
-
 	bool ld;
+	public GameObject heart;
 
 	public void Hit (int it)
 	{
-		
-		Count = Count - it;
-		ld = true;
+		if (Count <= 3) {
+			Count = Count - it;
+			ld = true;
+		}
+	}
+
+	public void HPheal ()
+	{
+		if (Count < 3) {
+			Hit (-1);
+		}
 	}
 
 	void HeartPaint ()
@@ -34,7 +40,6 @@ public class HP : MonoBehaviour
 		if (Count >= 3) {
 			Instantiate (heart, new Vector2 (-3, 4.25f), Quaternion.identity);
 		}
-
 	}
 
 	void LD ()
@@ -47,14 +52,8 @@ public class HP : MonoBehaviour
 			FindObjectOfType<Basescript> ().Explosion ();
 			FindObjectOfType<Manager> ().GameOver ();
 
-			//Debug.Log ("tyugjgjrr");
 		} else {
 			//childObj.gameObject.SetActive (false);
-			//Debug.Log ("tyurr");
-
-
-
-
 
 		}
 	}
@@ -65,43 +64,31 @@ public class HP : MonoBehaviour
 		foreach (GameObject player in players) {
 			Destroy (player);
 		}
-
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
 		HeartPaint ();
-
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-
-
-
 		if (ld == true) {
 			HeartPaint ();
 			LD ();
 			ld = false;
-
 		}
 
 		//if (Count <= 0)
 		//{
-
 		//    var clones = GameObject.FindGameObjectsWithTag("a");
 		//    foreach (var clone in clones)
 		//    {
 		//        Destroy(clone);
 
-
-
-
 		//    }
-
-
 
 		//}
 		//else

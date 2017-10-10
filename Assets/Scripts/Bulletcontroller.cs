@@ -14,6 +14,7 @@ public class Bulletcontroller : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}*/
+
 		addshot ();
 
 		if (transform.position.x > 10) {
@@ -23,31 +24,26 @@ public class Bulletcontroller : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D collision)
 	{
-       
 
 		// 衝突したときにスコアを更新する
-        
 
 		string layerName = LayerMask.LayerToName (collision.gameObject.layer);
 		// Debug.Log(layerName);
 		// レイヤー名がBullet (Player)以外の時は何も行わない
         
 		if (layerName == "Enemy") {
-			//   Debug.Log("とおって");
+			//Debug.Log("とおって");
+			//GameObject.Find("Canvas").GetComponent<UIcontroller>().AddScore();
 
-			//  GameObject.Find("Canvas").GetComponent<UIcontroller>().AddScore();
 		}
 		if (layerName == "Player") {
-
-            
 			//aitewokesu
 			Destroy (collision.gameObject);
 			// Debug.Log("とおって");
 			Destroy (gameObject);
+
 		}
 	}
-
-
 
 	public void addshot (/*int shot*/)
 	{
@@ -55,9 +51,6 @@ public class Bulletcontroller : MonoBehaviour
 		/*int i=0;
         if (i < transform.childCount)
         {
-
-
-
             i++;
         }
 
@@ -71,15 +64,12 @@ public class Bulletcontroller : MonoBehaviour
 
 		if (transform.name == "BulletPrefab1") {
 			transform.Translate (0.2f, 0, 0);
-
 		}
 		if (transform.name == "BulletPrefab2") {
-			transform.Translate (0.2f, 0.1f, 0);
-
+			transform.Translate (0.2f, 0.05f, 0);
 		}
 		if (transform.name == "BulletPrefab3") {
-			transform.Translate (0.2f, -0.1f, 0);
-
+			transform.Translate (0.2f, -0.05f, 0);
 		}
 	}
 

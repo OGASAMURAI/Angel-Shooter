@@ -5,40 +5,28 @@ using UnityEngine;
 public class Itemscript : MonoBehaviour
 {
     
-	public int shot = 1;
-
-
-
-
   
 	void OnCollisionEnter2D (Collision2D collision)
 	{
 		if (gameObject.name == "shotaddTxc") {
-			if (collision.gameObject.tag == "a") {//shotaddメソッドを呼び出す　引数はshotpoint
+			if (collision.gameObject.tag == "a") {
 				
 				FindObjectOfType<Player> ().wayadd ();
 				Destroy (gameObject);
 			}
 		}
+
+		if (gameObject.name == "HPitem") {
+			if (collision.gameObject.tag == "a") {
+				FindObjectOfType<HP> ().HPheal ();
+				Destroy (gameObject);
+			}
+		}
 	}
-
-	private void addshotcall ()
-	{
-		//FindObjectOfType<Bulletcontroller> ().addshot ();
-
-	}
-
-
-
-
 
 	// Use this for initialization
 	void Start ()
 	{
-        
-		{
-
-		}
 		
 	}
 	
