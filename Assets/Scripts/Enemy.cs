@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
 	// Spaceshipコンポーネント
 	Basescript basescript;
 
-	private Itemscript addshot;
+	public GameObject shotaddTxc;
 
 
 	IEnumerator Start ()
@@ -74,6 +74,7 @@ public class Enemy : MonoBehaviour
 				basescript.Explosionenemy ();
 				//  Debug.Log("わhuhuhああ");
 				// エネミーの削除
+				itemdrop ();
 				Destroy (gameObject);
 
 
@@ -96,5 +97,16 @@ public class Enemy : MonoBehaviour
 			// /FindObjectOfType<Manager> ().GameOver ();
 		}
 	}
+
+	void itemdrop ()
+	{
+		Debug.Log ("aaaa");
+		int rnd = Random.Range (0, 2);
+		if (rnd == 0) {
+			GameObject shotaddItem = Instantiate (shotaddTxc, transform.position, transform.rotation) as GameObject;
+			shotaddItem.name = "shotaddTxc";
+		}
+	}
+	
 }
 

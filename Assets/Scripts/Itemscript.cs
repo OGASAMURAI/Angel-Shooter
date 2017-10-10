@@ -6,16 +6,18 @@ public class Itemscript : MonoBehaviour
 {
     
 	public int shot = 1;
-	public Player playerScript;
-	GameObject shotaddTxc;
+
+
 
 
   
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		if (collision.gameObject.tag == "character 2") {//shotaddメソッドを呼び出す　引数はshotpoint
-			if (gameObject == shotaddTxc) {
+		if (gameObject.name == "shotaddTxc") {
+			if (collision.gameObject.tag == "a") {//shotaddメソッドを呼び出す　引数はshotpoint
+				
 				FindObjectOfType<Player> ().wayadd ();
+				Destroy (gameObject);
 			}
 		}
 	}
@@ -26,13 +28,7 @@ public class Itemscript : MonoBehaviour
 
 	}
 
-	public void itemdrop ()
-	{
 
-		if (Random.Range (0, 49) == 0) {
-			Instantiate (shotaddTxc, transform.position, transform.rotation);
-		}
-	}
 
 
 
