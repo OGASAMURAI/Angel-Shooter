@@ -75,6 +75,13 @@ public class Player : MonoBehaviour
 		}
 	}
 
+    public void MoveS()
+    {
+        Vector3 pos = transform.position;
+
+        transform.position = new Vector3(pos.x, pos.y*-1, pos.z);
+    }
+
 	void shotadd ()
 	{
 
