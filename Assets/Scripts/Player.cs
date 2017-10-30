@@ -60,13 +60,14 @@ public class Player : MonoBehaviour
 			transform.Translate (0.1f, 0, 0);
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
+          //  GetComponent<AudioSource>().Play();
+            //Debug.Log(GetComponent<AudioSource>());
+            shotadd();
+           
 
+        }
 
-			shotadd ();
-
-		}
-        
-	}
+    }
 
 	public void wayadd ()
 	{
@@ -74,6 +75,12 @@ public class Player : MonoBehaviour
 			way++;
 		}
 	}
+  public void MoveS() 
+    { 
+        Vector3 pos = transform.position; 
+ 
+        transform.position = new Vector3(pos.x, pos.y*-1, pos.z); 
+    } 
 
     public void MoveS()
     {

@@ -42,6 +42,7 @@ public class Basescript: MonoBehaviour
     public void Shot(Transform origin)
     {
         Instantiate(bullet, origin.position, origin.rotation);
+      
     }
 
     // 機体の移動

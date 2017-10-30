@@ -3,19 +3,21 @@ using System.Collections;
 
 public class Bulletcontroller : MonoBehaviour
 {
-	public int power = 1;
+   
+    public int power = 1;
 	public int way = 1;
 
 	void Update ()
 	{
-		/*transform.Translate(0.2f, 0, 0);
+        
+        /*transform.Translate(0.2f, 0, 0);
 
 		if (transform.position.x > 10)
 		{
 			Destroy(gameObject);
 		}*/
 
-		addshot ();
+        addshot ();
 
 		if (transform.position.x > 10) {
 			Destroy (gameObject);
@@ -63,13 +65,17 @@ public class Bulletcontroller : MonoBehaviour
             }*/
 
 		if (transform.name == "BulletPrefab1") {
-			transform.Translate (0.2f, 0, 0);
+            GetComponent<AudioSource>().Play();
+           // Debug.Log(GetComponent<AudioSource>());
+            transform.Translate (0.2f, 0, 0);
 		}
 		if (transform.name == "BulletPrefab2") {
-			transform.Translate (0.2f, 0.05f, 0);
+            GetComponent<AudioSource>().Play();
+            transform.Translate (0.2f, 0.05f, 0);
 		}
 		if (transform.name == "BulletPrefab3") {
-			transform.Translate (0.2f, -0.05f, 0);
+            GetComponent<AudioSource>().Play();
+            transform.Translate (0.2f, -0.05f, 0);
 		}
 	}
 

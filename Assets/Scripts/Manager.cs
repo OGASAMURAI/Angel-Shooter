@@ -28,10 +28,12 @@ public class Manager : MonoBehaviour
 	void Update ()
 	{
         //MをおしたときにY軸対象線上に移動する
+        { 
         if(IsPlaying()==true  && Input.GetKeyDown(KeyCode.M)){
+ 
             FindObjectOfType<Player>().MoveS();
+ 
         }
-		
 
 		// ゲーム中ではなく、Xキーが押されたらtrueを返す。
 		if (IsPlaying () == false && Input.GetKeyDown (KeyCode.X)) {
